@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        input{
+            width: 300px;
+            padding: 20px;
+        }
+        button{
+            margin-top: 30px;
+            width: 150px;
+            margin-left: 30px;
+            height: 30px;
+        }
+        #container2{
+            /* margin-left: 30px; */
+            padding-left: 20px;
+            padding-right: 30px;
+        }
+        thead,tr,th{
+            border: 1px solid black;
+        }
+        th,td{
+            border: 1px solid black;
+            padding-left:20px ;
+            padding-right: 20px;
+        }
+        table{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Data</h1>
+    <form id="container">
+        <input type="text" id="inp1" placeholder="user's name">
+        <input type="number" id="inp2" placeholder="Number">
+        <br>
+        <button id="submit">Submit</button>
+        <br>
+        <button id="display">Display</button>
+    </form>
+    <table id="container2">
+       <thead>
+            <tr>
+                <th> Name</th>
+                <th> Age</th> 
+            </tr>
+        </thead>
+        <tbody><!-- apend the data here--></tbody>
+    </table>
+</body>
+</html>
+<script src="prob1.js"></script>
