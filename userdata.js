@@ -8,8 +8,9 @@ function clickHere(){
     .then((res)=>res.json())
     .then((res)=>{
         data = res.data;
+        localStorage.setItem("user",JSON.stringify(data))
         console.log(data);
-        fetchUser(data)
+        fetchUser()
     })
     .catch((error)=>{
         console.log(error)
@@ -19,36 +20,41 @@ function clickHere(){
 
 
 
-function fetchUser(data){
-    data.forEach((user) => {
-        let div=document.createElement("div")
+function fetchUser(){
+    let display=localStorage.getItem("user")
+    if(display){
+        let parse=JSON.parse(display)
+    
+        parse.forEach((user) => {
+            let div=document.createElement("div")
 
-        let avtar=document.createElement("img")
-        avtar.src=user.avatar
+            let avtar=document.createElement("img")
+            avtar.src=user.avatar
 
-        let email=document.createElement("p")
-        email.innerText=`email id : ${user.email}`
-        let name=document.createElement('p')
-        name.innerText=`name : ${user.first_name}`
+            let email=document.createElement("p")
+            email.innerText=`email id : ${user.email}`
+            let name=document.createElement('p')
+            name.innerText=`name : ${user.first_name}`
 
 
-        let id=document.createElement("p")
-        id.innerText=`user Id : ${user.id}`
+            let id=document.createElement("p")
+            id.innerText=`user Id : ${user.id}`
 
-        let last_n=document.createElement("p")
-        last_n.innerText=`Last_name : ${user.last_name}`
+            let last_n=document.createElement("p")
+            last_n.innerText=`Last_name : ${user.last_name}`
 
-        div.append(avtar,email,name,id,last_n)
+            div.append(avtar,email,name,id,last_n)
 
-        container.appendChild(div)
-    });
+            container.appendChild(div)
+        
+        });
+    
+    }
 }
 
-function display(){
-    btn.addEventListener("click",function(){
-        clickHere()
 
-    })
-}
-display()
+btn.addEventListener("click",function(){
+    clickHere()
+
+})
 
